@@ -1,8 +1,13 @@
-import { FlatList, ListRenderItem, StyleSheet, View} from 'react-native';
+import { FlatList, ListRenderItem, StyleSheet, View, Text, TouchableOpacity} from 'react-native';
 import React  from 'react';
 import Book from '../components/Book';
+import { useDispatch, useSelector } from 'react-redux';
+import { RootState } from '../store/store';
+import { decrement } from '../store/counterReducer';
 
 const HomeScreen = () => {
+  const {value} = useSelector((state: RootState) => state.counter);
+  const dispatch = useDispatch();
   const userBooks = []
 
   type BookItem = {
@@ -25,6 +30,13 @@ const renderItem: ListRenderItem<BookItem> = ({item}) => (
 
   return (
     <View style={styles.cont}>
+      <Text> {value} </Text>
+      <TouchableOpacity
+        title="- Decrement"
+        onPress={() => dispatch({type: 'decrement'})}
+        >
+        <Text> - Decrement </Text>
+      </TouchableOpacity>
       <FlatList 
         data={userBooks}
         renderItem={renderItem}
