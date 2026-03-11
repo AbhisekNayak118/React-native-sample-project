@@ -1,5 +1,5 @@
 import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
-import HomeScreen from '../screens/HomeScreen';
+import HomeScreen from '../screens/HomeScreen/HomeScreen';
 import SettingsScreen from '../screens/SettingsScreen';
 import {Image} from 'react-native';
 import ProfileScreen from '../screens/ProfileScreen';

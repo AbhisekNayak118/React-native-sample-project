@@ -10,7 +10,7 @@ const App = () => {
       <NavigationContainer>
         <MainTabs />
       </NavigationContainer>
-    </Provider>
+    </Provider> 
   );
 };
 

@@ -1,9 +1,11 @@
 import { configureStore } from '@reduxjs/toolkit'
 import counterReducer from './counterReducer' 
+import  bookSlice  from './bookReducer'
 
 export default configureStore({
   reducer: {
-    counter : counterReducer
+    counter : counterReducer,
+    books: bookSlice
   },
 })
 export type RootState = RefurnType<typeof store.getState>
