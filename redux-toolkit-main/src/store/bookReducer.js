@@ -2,7 +2,8 @@ import { buildCreateSlice, createSlice  } from "@reduxjs/toolkit";
 import { getBooks } from "./booksAction";
 
 const initState = {
-    books: []
+    books: [],
+    loader: false
 
 }
 
@@ -14,7 +15,17 @@ export const bookSlice =  createSlice ({
     },
     extraReducers: builder => {
         builder.addCase(getBooks.fulfilled, (state, action ) => {
-            state.books = action.payload;
+            state.books = action.payload; 
+            state.loader = false;
+        }) 
+
+        builder.addCase(getBooks.pending, (state, action ) => {
+            state.loader = true; 
+        }) 
+
+        builder.addCase(getBooks.rejected, (state, action ) => {
+            state.loader = false;
+            state.books = action.payload; 
         }) 
     }
 });

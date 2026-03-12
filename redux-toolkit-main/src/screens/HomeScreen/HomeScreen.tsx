@@ -1,16 +1,18 @@
 import { FlatList, ListRenderItem, StyleSheet, View, Text, Button} from 'react-native';
-import React  from 'react';
+import React, {useEffect}  from 'react';
 import Book from '../../components/Book';
 import { useDispatch, useSelector } from 'react-redux';
 import { RootState } from '../../store/store';
 import { decrement, increment, incrementByAmount } from '../../store/counterReducer';
 import styles from './style';
+import { getBooks } from '../../store/booksAction';
 
 const HomeScreen = () => {
   const {value} = useSelector((state: RootState) => state.counter);
   const dispatch = useDispatch();
 
   const {books} = useSelector((state: RootState) => (state.books));
+  // console.log(books);
 
   type BookItem = {
     name_of_book:string,
@@ -28,6 +30,9 @@ const renderItem: ListRenderItem<BookItem> = ({item}) => (
     categoryColor='#764abc'
   />
 );
+  // useEffect(() => {
+  //   dispatch(getBooks())
+  // }, []);
 
 
   return (
