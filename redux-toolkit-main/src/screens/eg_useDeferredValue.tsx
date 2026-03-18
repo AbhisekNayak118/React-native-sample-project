@@ -1,7 +1,7 @@
 import React, { useState, useDeferredValue } from "react";
 import { View, TextInput, FlatList, Text } from "react-native";
 
-export default function eg_dv() {
+export default function Eg_dv() {
   const [query, setQuery] = useState("");
 
   const deferredQuery = useDeferredValue(query);
